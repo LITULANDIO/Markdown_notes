@@ -1,8 +1,14 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
-  mutations: {},
+  state: {
+    notes: []
+  },
+  mutations: {
+    SET_NOTES(state, notes){
+      state.notes = notes;
+    }
+  },
   actions: {},
   modules: {}
 });
