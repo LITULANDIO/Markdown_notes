@@ -1,11 +1,11 @@
 <template>
 <div class="dev | container | p-3 my-3 mx-auto | flex">
   <!-- Left side -->
-  <section class="dev | p-3 mr-3">
+  <section class="dev | w-1/4 p-3 mr-3">
     <p>Search</p>
 
   <!-- Note list -->
-    <p>Note list</p>
+    <NoteList />
   </section>
 
   <!-- Right side -->
@@ -18,12 +18,14 @@
 </template>
 
 <script>
+import NoteList from '@/components/NoteList.vue';
 //import { useStore} from 'vuex';
 //import { ref, computed } from 'vue';
 
 export default {
   name: "App",
   components: {
+    NoteList
   },
   setup(){
 
