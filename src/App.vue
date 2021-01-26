@@ -1,19 +1,22 @@
 <template>
-<div class="container | min-h-1/2 p-3 my-3 mx-auto | bg-white rounded-xl shadow-2xl | flex">
-  <!-- Left side -->
-  <section class="w-1/4 p-3 mr-3 | bg-gray-100">
-    <p>Search</p>
+<div>
+  <h2 class="pt-3 pb-3 | text-center text-xl">Makrdown Notes ✍</h2>
+  <div class="container | min-h-1/2 p-3 my-3 mx-auto | bg-white rounded-xl shadow-2xl | flex">
+    <!-- Left side -->
+    <section class="w-1/4 p-3 mr-3 | bg-gray-100">
+      <p>Search</p>
 
-  <!-- Note list -->
-    <NoteList />
-  </section>
+    <!-- Note list -->
+      <NoteList />
+    </section>
 
-  <!-- Right side -->
-  <section class="p-3 | flex-grow">
+    <!-- Right side -->
+    <section class="p-3 | flex-grow">
 
-  <!-- Active note -->
-    <ActiveNote />
-  </section>
+    <!-- Active note -->
+      <ActiveNote />
+    </section>
+  </div>
 </div>
 </template>
 
