@@ -3,7 +3,8 @@
         <section class="flex-1">
             <textarea 
                 v-if="activeNote" 
-                :value="activeNote"
+                :value="activeNote.body"
+                @input="updateNote"
                 class="w-full h-full p-3 | bg-gray-200">
             </textarea>
         </section>
@@ -20,11 +21,13 @@ export default {
     setup(){
         const store = useStore();
         const activeNote = computed(() => {
-          return store.state.activeNote? store.getters.getNoteById(store.state.activeNote).body:null;
+          return store.state.activeNote? store.getters.getNoteById(store.state.activeNote) :null;
         });
+        const updateNote = $event => store.commit('UPDATE_NOTE', {id: activeNote.value.id, body: $event.target.value})
 
         return{
-        activeNote
+        activeNote,
+        updateNote
         // alternativa
         //     activeNote: computed(() =>
         //          store.state.activeNote

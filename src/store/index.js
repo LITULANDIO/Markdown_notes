@@ -14,6 +14,9 @@ export default createStore({
     },
     SET_ACTIVE_NOTE(state, noteId = null) {
       state.activeNote = noteId;
+    },
+    UPDATE_NOTE(state, {id, body}){
+      state.notes.find(note => note.id === id).body = body;
     }
   },
   actions: {},
