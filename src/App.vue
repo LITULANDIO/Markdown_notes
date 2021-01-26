@@ -12,20 +12,22 @@
   <section class="dev | p-3 | flex-grow">
 
   <!-- Active note -->
-    <p>Active note</p>
+    <ActiveNote />
   </section>
 </div>
 </template>
 
 <script>
 import NoteList from '@/components/NoteList.vue';
+import ActiveNote from '@/components/ActiveNote.vue';
 //import { useStore} from 'vuex';
 //import { ref, computed } from 'vue';
 
 export default {
   name: "App",
   components: {
-    NoteList
+    NoteList,
+    ActiveNote
   },
   setup(){
 
