@@ -20,6 +20,11 @@ export default createStore({
     },
     UPDATE_NOTE(state, {id, body}){
       state.notes.find(note => note.id === id).body = body;
+    },
+    DELETE_NOTE(state){
+      const index = state.notes.find(note => note.id == state.activeNote);
+      state.notes.splice(index, 1);
+      state.activeNote = null;
     }
   },
   actions: {

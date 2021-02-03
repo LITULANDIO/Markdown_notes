@@ -3,6 +3,7 @@
         ref="textarea"
         :value="body"
         @input="$emit('update:body', $event.target.value)"
+        @blur="$emit('blur-note', $event.target.value)"
         class="w-full h-full p-3 | bg-gray-200">
     </textarea>
 </template>
@@ -17,7 +18,7 @@ export default {
             required: true
         }
     },
-    emits:['update:body'],
+    emits:['update:body', 'blur-note'],
     setup(){
         const textarea = ref(null);
         const focusTextarea = () => textarea.value.focus();
