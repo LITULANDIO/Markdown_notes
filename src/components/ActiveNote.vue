@@ -12,10 +12,16 @@
                 class="p-3 | bg-gray-900 text-white | flex-1"
             />
         </div>
-        <section class="mt-3 | flex justify-end">
-            <a href="#" @click="closeNote" class="py-1 px-3 | bg-gray-200 | rounded-xl">Close note</a>
+        <section class="mt-3 mr-3 | flex justify-between items-center">
+            <div>
+                Created on {{ noteDate }}, contains {{ noteLength }} words
+            </div>
+            <div>
+                 <a href="#" @click="closeNote" class="py-1 px-3 | bg-gray-200 | rounded-xl">Close note</a>
 
-            <a href="#" @click="deleteNote" class="py-1 px-3 | text-red-700 | rounded-xl shadow-2xl">Delete note</a>
+                <a href="#" @click="deleteNote" class="py-1 px-3 | text-red-700 | rounded-xl shadow-2xl">Delete note</a>
+            </div>
+           
 
         </section>
     </div>
@@ -52,13 +58,16 @@ export default {
         const deleteNote = () => store.commit('SET_DELETING', true);
         const blurNote = (value) => !value.length && deleteNote();
 
+
         return{
         activeNote,
         updateNote,
         closeNote,
         createNote,
         deleteNote,
-        blurNote
+        blurNote,
+        noteDate: computed(() => new Date(activeNote.value.id).toLocaleString()),
+        noteLength: computed(() => activeNote.value.body.split(/\W+/).length)
         // alternativa
         //     activeNote: computed(() =>
         //          store.state.activeNote
