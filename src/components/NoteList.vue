@@ -20,7 +20,7 @@ export default {
     },
     setup(){
         const store = useStore();
-        const notes = computed(() => store.state.notes);
+        const notes = computed(() => store.getters.getNotesBySearchTerm);
 
 
         return {

@@ -4,7 +4,8 @@ export default createStore({
   state: {
     notes: [],
     activeNote: null,
-    deleting: false
+    deleting: false,
+    searchTerm: ""
   },
   getters: {
     getNoteById: state => noteId => state.notes.find(note => note.id === noteId),
@@ -13,7 +14,12 @@ export default createStore({
       const id = noteId ? noteId : state.activeNote;
       const body = state.notes.find(note => note.id == id).body;
       return removeMd(body.substring(0,20));
+    },
+    getNotesBySearchTerm: state =>{
+      let filter = new RegExp(state.searchTerm, "i");
+      return state.notes.filter(note => note.body.match(filter));
     }
+
   },
   mutations: {
     CREATE_NOTE(state, note){
@@ -35,6 +41,9 @@ export default createStore({
     },
     SET_DELETING(state, deleting){
       state.deleting = deleting;
+    },
+    SET_SEARCH_TERM(state, searchTerm){
+      state.searchTerm = searchTerm;
     }
   },
   actions: {

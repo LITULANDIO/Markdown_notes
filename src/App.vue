@@ -5,7 +5,7 @@
   <div class="container | min-h-1/2 p-3 my-3 mx-auto | bg-white rounded-xl shadow-2xl | flex">
     <!-- Left side -->
     <section class="w-1/4 p-3 mr-3 | bg-gray-100">
-      <p>Search</p>
+      <SearchNote />
 
     <!-- Note list -->
       <NoteList />
@@ -25,6 +25,7 @@
 import NoteList from '@/components/NoteList.vue';
 import ActiveNote from '@/components/ActiveNote.vue';
 import DeleteNote from '@/components/DeleteNote.vue';
+import SearchNote from '@/components/SearchNote.vue';
 //import { useStore} from 'vuex';
 //import { ref, computed } from 'vue';
 
@@ -33,7 +34,8 @@ export default {
   components: {
     NoteList,
     ActiveNote,
-    DeleteNote
+    DeleteNote,
+    SearchNote
   },
   setup(){
 
