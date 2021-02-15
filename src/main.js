@@ -8,6 +8,9 @@ import notes from "@/seed.json";
 store.commit("SET_NOTES", notes);
 
 console.log(store)
+//check auth process
+store.dispatch("checkAuth");
+
 createApp(App)
   .use(store)
   .mount("#app");
